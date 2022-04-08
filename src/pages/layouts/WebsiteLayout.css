@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 8px;
+}
+
+.nav-layout {
+    text-align: center;
+    background: #5BC3D5;
+    min-height: 100vh;
+
+}

@@ -1,0 +1,35 @@
+.header-top {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.422);
+}
+
+.menu {
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.menu li a button {
+    border-radius: 15px;
+    color: #5bc3d5;
+}
+
+.menu-main {
+    padding: 0;
+}
+
+.menu-main li {
+    list-style: none;
+    padding: 8px 0;
+}
+
+.menu-main li a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.menu-main li a:hover {
+    color: #00000080;
+}

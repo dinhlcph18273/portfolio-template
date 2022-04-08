@@ -1,0 +1,28 @@
+.header-pages {
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+}
+
+
+.header-page-main {
+    text-align: center;
+}
+
+.feart-p {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.portfolio {
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    background: #5BC3D5;
+}
+
+.resume {
+    border-radius: 5px;
+    color: white;
+    background: #4f4f4f;
+}

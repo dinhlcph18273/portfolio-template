@@ -8,7 +8,7 @@ import "./Nav.css"
 
 const Nav = () => {
     return (
-        <div>
+        <div className='nav'>
             <div style={{ padding: 16 }}>
                 <div className='header-top'>
                     <h1><Link to="" style={{ color: 'white', fontWeight: 800 }}>Le Cong Dinh</Link></h1>

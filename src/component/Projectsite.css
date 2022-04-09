@@ -1,3 +1,41 @@
 .projectsite {
     padding: 48px;
 }
+
+.project {
+    margin-top: 40px;
+}
+
+.desc-box {
+    padding: 10px;
+}
+
+.gutter-row {
+    padding: 8px 10px 8px 0;
+    position: relative;
+}
+
+.gutter-row:hover {
+    background: rgba(128, 128, 128, 0.696);
+    transition: all 0.2s ease-in-out;
+}
+
+.views {
+    position: absolute;
+    top: 30%;
+    right: 60%;
+    background: #4f4f4f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    opacity: 0;
+}
+
+.views:hover {
+    background: #4f4f4f;
+    color: white;
+}
+
+.gutter-row:hover .views {
+    opacity: 1;
+}

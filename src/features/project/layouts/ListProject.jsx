@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Listproject } from '../projectSlice'
+import { Listproject, Removeproject } from '../projectSlice'
 import { Button, Row, Table, Image } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
@@ -41,13 +41,13 @@ const ListProject = () => {
             dataIndex: '_id',
             render: (id) => (
                 <Row>
-                    <Link className='edit-to' to={`/admin/category/${id}/edit`}>
+                    <Link className='edit-to' to={`/admin/project/${id}/edit`}>
                         <Button type="primary" icon={<EditOutlined />}></Button>
                     </Link>
                     <Button type="primary" danger icon={<DeleteOutlined />} onClick={() => {
                         const confirm = window.confirm("muốn xóa không?")
                         if (confirm) {
-                            dispatch()
+                            dispatch(Removeproject(id))
                         }
                     }}>
                     </Button>
@@ -61,7 +61,7 @@ const ListProject = () => {
     return (
         <div>
             <Row>
-                <Link to="/admin/category/add">
+                <Link to="/admin/project/add">
                     <Button type='primary' className='submit-to' > Add </Button>
                 </Link>
             </Row>

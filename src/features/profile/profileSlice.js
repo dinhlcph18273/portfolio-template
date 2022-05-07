@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { list } from "../../api/profile";
+import { create, list, read, remove, update } from "../../api/profile";
 
 export const listProfile = createAsyncThunk(
     "profile/listProfile",
@@ -14,19 +14,21 @@ export const listProfile = createAsyncThunk(
 )
 export const editProfile = createAsyncThunk(
     "profile/editProfile",
-    async() =>  {
+    async(profile) =>  {
         try {
-            // const {data} = await 
+            const {data} = await update(profile)
+            return data
         } catch (error) {
-            
+            console.log(error);
         }
     }
 )
 export const createProfile = createAsyncThunk(
     "profile/createProfile",
-    async() =>  {
+    async(profile) =>  {
         try {
-            // const {data} = await 
+            const {data} = await create(profile)
+            return data
         } catch (error) {
             
         }
@@ -34,9 +36,10 @@ export const createProfile = createAsyncThunk(
 )
 export const removeProfile = createAsyncThunk(
     "profile/removeProfile",
-    async() =>  {
+    async(id) =>  {
         try {
-            // const {data} = await 
+            const {data} = await remove(id)
+            return data
         } catch (error) {
             
         }
@@ -44,9 +47,10 @@ export const removeProfile = createAsyncThunk(
 )
 export const readProfile = createAsyncThunk(
     "profile/readProfile",
-    async() =>  {
+    async(id) =>  {
         try {
-            // const {data} = await 
+            const {data} = await read(id)
+            return data
         } catch (error) {
             
         }
@@ -57,7 +61,7 @@ export const readProfile = createAsyncThunk(
 const profileSlice = createSlice({
     name: "profile",
     initialState: {
-        value: []
+        value: [],
     },
     reducers: {
 
@@ -65,6 +69,19 @@ const profileSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(listProfile.fulfilled, (state,action)=> {
             state.value = action.payload
+        })
+        builder.addCase(createProfile.fulfilled, (state, action)=>{
+            state.value.push(action.payload)
+        })
+        builder.addCase(removeProfile.fulfilled, (state, action)=>{
+            state.value = state.value.filter(item=> item._id !== action.payload._id)
+        })
+        builder.addCase(readProfile.fulfilled,(state,action)=>{
+            state.value = action.payload
+        })
+        builder.addCase(editProfile.fulfilled,(state, action)=>{
+            state.value = state.value.map(item =>
+                item._id === action.payload._id ? action.payload : item)
         })
     }
 })

@@ -1,12 +1,15 @@
+/* eslint-disable no-template-curly-in-string */
 import React from 'react'
 import { Form, Input, InputNumber, Button } from 'antd';
+import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { createProfile } from "../profileSlice"
 
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 8 },
 };
 
-/* eslint-disable no-template-curly-in-string */
 const validateMessages = {
     required: '${label} is required!',
     types: {
@@ -17,10 +20,12 @@ const validateMessages = {
         range: '${label} must be between ${min} and ${max}',
     },
 };
-/* eslint-enable no-template-curly-in-string */
 const AddProfile = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const onFinish = (values) => {
-        console.log(values);
+        dispatch(createProfile(values))
+        navigate("/admin/profile")
     };
 
     return (
@@ -51,6 +56,9 @@ const AddProfile = () => {
                     <Input />
                 </Form.Item>
                 <Form.Item name='desc' label="Desc" rules={[{ required: true }]}>
+                    <Input.TextArea />
+                </Form.Item>
+                <Form.Item name='exp' label="Exp" rules={[{ required: true }]}>
                     <Input.TextArea />
                 </Form.Item>
                 <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 11 }}>

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listProfile } from '../profileSlice'
+import { listProfile, removeProfile } from '../profileSlice'
 import { Button, Row, Table, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 
 const ListProfile = () => {
-    const profile = useSelector(item => item.profile.value)
+    const profile = useSelector((item, index) => item.profile.value)
     const dispatch = useDispatch()
     const columns = [
         {
@@ -54,17 +54,21 @@ const ListProfile = () => {
             dataIndex: 'desc',
         },
         {
+            title: 'exp',
+            dataIndex: 'exp',
+        },
+        {
             title: 'Action',
             dataIndex: '_id',
             render: (id) => (
                 <Row>
-                    <Link className='edit-to' to={`/admin/category/${id}/edit`}>
+                    <Link className='edit-to' to={`/admin/profile/${id}/edit`}>
                         <Button type="primary" icon={<EditOutlined />}></Button>
                     </Link>
                     <Button type="primary" danger icon={<DeleteOutlined />} onClick={() => {
                         const confirm = window.confirm("muốn xóa không?")
                         if (confirm) {
-                            // dispatch(removeCategory(id))
+                            dispatch(removeProfile(id))
                         }
                     }}>
                     </Button>
@@ -78,7 +82,7 @@ const ListProfile = () => {
     return (
         <div>
             <Row>
-                <Link to="/admin/category/add">
+                <Link to="/admin/profile/add">
                     <Button type='primary' className='submit-to' > Add </Button>
                 </Link>
             </Row>

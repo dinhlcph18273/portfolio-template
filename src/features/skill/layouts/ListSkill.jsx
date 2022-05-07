@@ -25,6 +25,16 @@ const ListSkill = () => {
             />,
         },
         {
+            title: 'Img',
+            dataIndex: 'img2',
+            render: (text) => <Image
+                width={200}
+                height={200}
+                src={text}
+
+            />,
+        },
+        {
             title: 'Desc',
             dataIndex: 'desc',
         },

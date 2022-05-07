@@ -27,17 +27,17 @@ function App() {
             <Route path='profile'>
               <Route index element={<ListProfile/>}/>
               <Route path='add' element={<AddProfile/>}/>
-              <Route path='edit/:id' element={<EditProfile/>}/>
+              <Route path=':id/edit' element={<EditProfile/>}/>
             </Route>
             <Route path='project'>
               <Route index element={<ListProject/>}/>
               <Route path='add' element={<AddProject/>}/>
-              <Route path='edit/:id' element={<EditProject/>}/>
+              <Route path=':id/edit' element={<EditProject/>}/>
             </Route>
             <Route path='skill'>
               <Route index element={<ListSkill/>}/>
               <Route path='add' element={<AddSkill/>}/>
-              <Route path='edit/:id' element={<EditSkill/>}/>
+              <Route path=':id/edit' element={<EditSkill/>}/>
             </Route>
         </Route>
       </Routes>

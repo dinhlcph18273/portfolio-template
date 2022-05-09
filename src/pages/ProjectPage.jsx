@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
-import "./Projectsite.css"
 import { Row, Col, Button } from 'antd';
-import { Typography } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Listproject } from '../features/project/projectSlice';
 import { Link } from "react-router-dom"
+import { Typography } from 'antd';
+
 const { Title } = Typography;
-const Projectsite = () => {
+
+
+const ProjectPage = () => {
     const project = useSelector(item => item.project.value)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -19,9 +21,14 @@ const Projectsite = () => {
         getProject()
     }, [dispatch])
     return (
-        <div className='projectsite'>
-            <Title className='name-main' level={2} style={{ fontWeight: 700 }}>Projects</Title>
-            <div>
+        <div >
+            <div style={{ margin: "40px 0" }}>
+                <header style={{ background: "none", margin: "0 210px", textAlign: "center" }}>
+                    <Title>Portfolio</Title>
+                    <p style={{ fontWeight: 450, fontSize: 16 }}>Welcome to my online portfolio. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. I'm taking on freelance work at the moment. Want some help building your software?</p>
+                </header>
+            </div>
+            <div style={{ margin: 50 }}>
                 <Row className='project'>
                     {project?.map(item => {
                         return (
@@ -35,7 +42,7 @@ const Projectsite = () => {
                                         <p>{item.desc}</p>
 
                                         <span>Client:Google</span>
-                                        <Link to={`project/${item._id}`} ><Button className='views' icon={<EyeOutlined />}>Views Case Study</Button></Link>
+                                        <Link to={`${item._id}`} ><Button className='views' icon={<EyeOutlined />}>Views Case Study</Button></Link>
                                     </Col>
                                 </Row>
                             </Col>
@@ -47,4 +54,4 @@ const Projectsite = () => {
     )
 }
 
-export default Projectsite
+export default ProjectPage

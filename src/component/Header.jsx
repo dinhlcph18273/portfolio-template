@@ -12,11 +12,7 @@ const Header = () => {
     const profile = useSelector(item => item.profile.value)
     const dispatch = useDispatch()
     useEffect(() => {
-        const getProfile = async () => {
-            const { payload } = await dispatch(readProfile("624e54ac136f289c6556b849"))
-            return payload
-        }
-        getProfile()
+        dispatch(readProfile("62773f89a690b37600abb5bc"))
     }, [dispatch])
 
     return (
@@ -28,10 +24,10 @@ const Header = () => {
                     <p className='feart-p'>{profile.desc}
                     </p>
                     <div>
-                        <Link to="" >
+                        <Link to="project" >
                             <Button className='portfolio' icon={<ArrowRightOutlined />}>Views Portfolio</Button>
                         </Link>
-                        <Link to="">
+                        <Link to="resume">
                             <Button className='resume' icon={<FileTextOutlined />}>Views Resume</Button>
                         </Link>
                     </div>

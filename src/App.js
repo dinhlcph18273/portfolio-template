@@ -14,6 +14,9 @@ import ListSkill from './features/skill/layouts/ListSkill';
 import AddSkill from './features/skill/layouts/AddSkill';
 import EditSkill from './features/skill/layouts/EditSkill';
 import HomePage from './pages/HomePage';
+import ProjectPage from './pages/ProjectPage';
+import Project from './pages/Project';
+import Resume from './pages/Resume';
 
 function App() {
   return (
@@ -21,7 +24,11 @@ function App() {
       <Routes>
         <Route path='/' element={<WebsiteLayout/>}>
             <Route index element={<HomePage/>} />
-          
+            <Route path='project' >
+              <Route index element={<ProjectPage/>}/>
+              <Route path=':id' element={<Project/>}/>
+            </Route>
+            <Route path='resume' element={<Resume/>}/>
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
             <Route path='profile'>

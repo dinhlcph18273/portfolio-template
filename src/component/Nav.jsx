@@ -22,9 +22,9 @@ const Nav = () => {
                 </div>
                 <div className='main'>
                     <ul className='menu-main'>
-                        <li><Link to=""><UserOutlined /> About Me</Link></li>
-                        <li><Link to=""><DesktopOutlined /> Portfolio</Link></li>
-                        <li><Link to=""><FileTextOutlined /> Resume</Link></li>
+                        <li><Link to="/"><UserOutlined /> About Me</Link></li>
+                        <li><Link to="project"><DesktopOutlined /> Portfolio</Link></li>
+                        <li><Link to="resume"><FileTextOutlined /> Resume</Link></li>
                     </ul>
                 </div>
             </div>

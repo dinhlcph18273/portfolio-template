@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { list, remove } from "../../api/project";
+import { list, read, remove } from "../../api/project";
 
 
 export const Listproject = createAsyncThunk(
@@ -7,6 +7,18 @@ export const Listproject = createAsyncThunk(
     async()=>{
         try {
             const {data} = await list();
+            return data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const Readproject = createAsyncThunk(
+    "project/Readproject",
+    async(id)=>{
+        try {
+            const {data} = await read(id);
             return data
         } catch (error) {
             console.log(error);
@@ -36,6 +48,9 @@ const projectSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(Listproject.fulfilled, (state, action)=>{
+            state.value = action.payload
+        })
+        builder.addCase(Readproject.fulfilled, (state,action)=>{
             state.value = action.payload
         })
         builder.addCase(Removeproject.fulfilled, (state, action)=>{

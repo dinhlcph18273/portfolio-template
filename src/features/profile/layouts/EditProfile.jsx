@@ -34,7 +34,7 @@ const EditProfile = () => {
                 const { payload } = await dispatch(readProfile(id))
                 form.setFieldsValue(payload)
             } catch (error) {
-
+                console.log(error);
             }
         }
         getProducts()

@@ -79,10 +79,10 @@ const profileSlice = createSlice({
         builder.addCase(readProfile.fulfilled,(state,action)=>{
             state.value = action.payload
         })
-        builder.addCase(editProfile.fulfilled,(state, action)=>{
-            state.value = state.value.map(item =>
-                item._id === action.payload._id ? action.payload : item)
-        })
+        // builder.addCase(editProfile.fulfilled,(state, action)=>{
+        //     state.value = state.value.map(item =>
+        //         item._id === action.payload._id ? action.payload : item)
+        // })
     }
 })
 

@@ -26,3 +26,14 @@
     color: white;
     background: #4f4f4f;
 }
+.portfolio:hover {
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    background: #54c2d5;
+}
+.resume:hover {
+    border-radius: 5px;
+    color: white;
+    background: #434343;
+}
